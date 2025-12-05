@@ -2,7 +2,7 @@
 # Public Route
 # --------------------------------------------------------------------------------------------------------
 resource "aws_route" "public-route" {
-  count = var.ig-attached ? 1 : 0
+  count = var.ig_attached ? 1 : 0
    region = var.aws_region
   route_table_id         = aws_route_table.public-route-table[0].id
   gateway_id             = aws_internet_gateway.internet-gateway[0].id
@@ -13,7 +13,7 @@ resource "aws_route" "public-route" {
 # NAT Route
 # --------------------------------------------------------------------------------------------------------
 resource "aws_route" "nat-route" {
-  count = var.nat-attached ? 1 : 0
+  count = var.nat_attached ? 1 : 0
    region = var.aws_region
   route_table_id         = aws_route_table.nat-route-table[0].id
   gateway_id             = aws_nat_gateway.nat_gw[0].id
@@ -44,7 +44,7 @@ resource "aws_route_table_association" "private-rt-association" {
 # NAT Subnet Association
 # --------------------------------------------------------------------------------------------------------
 resource "aws_route_table_association" "nat-rt-association" {
-  count = var.nat-attached ? length(aws_subnet.nat-private-subnets) : 0
+  count = var.nat_attached ? length(aws_subnet.nat-private-subnets) : 0
    region = var.aws_region
   subnet_id      = aws_subnet.nat-private-subnets[count.index].id
   route_table_id = aws_route_table.nat-route-table[0].id

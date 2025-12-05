@@ -1,5 +1,6 @@
 variable "sg_name" {
   description = "Name of the security Group"
+  type = string
 }
 
 variable "aws_region" {
@@ -18,6 +19,7 @@ variable "sg_ports" {
 }
 
 variable "vpc_id" {
+  type = string
   description = "VPC ID where the security group will be created"
 }
 
