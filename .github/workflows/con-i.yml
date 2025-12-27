@@ -191,7 +191,7 @@ jobs:
   deploy:
     needs: [upload_registry, upload_scan, image_tag]
     if: ${{ github.event.inputs.deploy == 'true' }}
-    uses: ./.github/workflows/con-i.yml
+    uses: ./.github/workflows/con-d.yml
     with:
       tag: ${{ needs.image_tag.outputs.tag }}
       environment: ${{ github.event.inputs.environment }}
