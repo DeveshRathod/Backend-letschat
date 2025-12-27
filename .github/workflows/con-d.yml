@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: terraform
+          ref: release
 
       - name: Set ENV variables
         run: |
@@ -60,7 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: terraform
+          ref: release
 
       - name: Reload ENV variables
         run: |
@@ -130,7 +130,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: terraform
+          ref: release
 
       - name: Reload ENV variables
         run: |
